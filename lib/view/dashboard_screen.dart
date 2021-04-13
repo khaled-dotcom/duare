@@ -31,7 +31,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               //logo
               Container(
@@ -79,29 +79,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           children: <Widget>[
                             GestureDetector(
                               child: Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      height: 110,
-                                      width: 110,
-                                      child: Image.asset("assets/grocery.jpg"),
-                                    ),
-                                    Text(
-                                      "Grocery",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
-                                    )
-                                  ],
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 110,
+                                        width: 110,
+                                        child: Image.asset("assets/grocery.jpg"),
+                                      ),
+                                      Text(
+                                        "Grocery",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20.0),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 width: _width / 2.3,
                                 height: 170,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.black12, width: 1)),
+                                color: Colors.white,
                               ),
                               onTap: () {
                                 /*Navigator.push(
@@ -115,36 +114,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                             GestureDetector(
                               child: Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      height: 110,
-                                      width: 110,
-                                      child: CircleAvatar(
-                                        radius: 50.0,
-                                        backgroundImage:
-                                            AssetImage("assets/rest.jpg"),
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 110,
+                                        width: 110,
+                                        child: CircleAvatar(
+                                          radius: 50.0,
+                                          backgroundImage:
+                                              AssetImage("assets/rest.jpg"),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Restaurents",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
-                                    )
-                                  ],
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Restaurents",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20.0),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 width: _width / 2.3,
                                 height: 170,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.black12, width: 1)),
+                                color: Colors.white,
                               ),
                               onTap: () {
                                 /*
@@ -166,32 +164,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           children: <Widget>[
                             GestureDetector(
                               child: Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      height: 110,
-                                      width: 110,
-                                      child: Image.asset("assets/medicine.jpg"),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Medicine",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
-                                    )
-                                  ],
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 110,
+                                        width: 110,
+                                        child: Image.asset("assets/medicine.jpg"),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Medicine",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20.0),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 width: _width / 2.3,
                                 height: 170,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.black12, width: 1)),
+                                color: Colors.white,
                               ),
                               onTap: () {
                                 /*  Navigator.push(
@@ -205,32 +202,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                             GestureDetector(
                               child: Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      height: 110,
-                                      width: 110,
-                                      child: Image.asset("assets/elect.jpg"),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Electronics",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
-                                    )
-                                  ],
+                                child: Card(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 110,
+                                        width: 110,
+                                        child: Image.asset("assets/elect.jpg"),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Electronics",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20.0),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 width: _width / 2.3,
                                 height: 170,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.black12, width: 1)),
+                                color: Colors.white,
                               ),
                               onTap: () {
                                 /*
@@ -248,43 +244,49 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Can't Use App?",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    Container(
-                        child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Order By Whatsapp",
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        FloatingActionButton(
-                            backgroundColor: Colors.white,
-                            onPressed: () {
-                              launchWhatsApp(
-                                  phone: 8801757264251, message: 'Hello');
-                            },
-                            child: CircleAvatar(
-                              radius: 50.0,
-                              backgroundImage: AssetImage("assets/whts.png"),
-                            ))
-                      ],
-                    ))
-                  ],
+                margin: EdgeInsets.only(left: 130.0),
+                child: Text(
+                  "Can't Use App?",
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Order By Whatsapp",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50.0),
+                          image: DecorationImage(
+                              image: AssetImage("assets/whts.png"))),
+                    ),
+                  ),
+                  /* FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () {
+                          launchWhatsApp(
+                              phone: 8801757264251, message: 'Hello');
+                        },
+                        child: CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage: AssetImage(),
+                        ))*/
+                ],
+              )
             ],
           ),
         ),
