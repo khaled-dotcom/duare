@@ -24,7 +24,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double _height = MediaQuery.of(context).size.height;
+
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,19 +38,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 height: 180,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                    color: Colors.white,
+                    color: Colors.grey[100],
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(40),
                         bottomLeft: Radius.circular(40))),
-                child: Image.asset("assets/logo.jpg"),
+                child: Image.asset("assets/logo1.png"),
               ), //logo
               SizedBox(
                 height: 40,
@@ -246,27 +238,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
               SizedBox(
                 height: 30,
               ),
-              Container(
-                margin: EdgeInsets.only(left: 130.0),
-                child: Text(
-                  "Can't Use App?",
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    "Order By Whatsapp",
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Can't Use App?",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "Order By Whatsapp",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
+
                   SizedBox(
                     width: 30,
                   ),
                   GestureDetector(
                     child: Container(
+                      padding: EdgeInsets.all(5.0),
                       height: 50,
                       width: 50,
                       decoration: BoxDecoration(
@@ -275,16 +271,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               image: AssetImage("assets/whts.png"))),
                     ),
                   ),
-                  /* FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        onPressed: () {
-                          launchWhatsApp(
-                              phone: 8801757264251, message: 'Hello');
-                        },
-                        child: CircleAvatar(
-                          radius: 50.0,
-                          backgroundImage: AssetImage(),
-                        ))*/
                 ],
               )
             ],
@@ -294,3 +280,5 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 }
+
+
