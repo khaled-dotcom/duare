@@ -23,7 +23,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
-  final list_item = [
+  final listItem = [
     {"image": "assets/grocery.jpg", "title": "Grocery"},
     {"image": "assets/rest.jpg", "title": "Restaurent"},
     {"image": "assets/medicine.jpg", "title": "Medicine"},
@@ -32,7 +32,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -74,7 +73,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
                         child: GridView.builder(
-                          itemCount: list_item.length,
+                          itemCount: listItem.length,
                           shrinkWrap: true,
                           physics: BouncingScrollPhysics(),
                           gridDelegate:
@@ -92,10 +91,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       height: 110,
                                       width: 110,
                                       child: Image.asset(
-                                          list_item[index]['image']),
+                                          listItem[index]['image']),
                                     ),
                                     Text(
-                                      list_item[index]['title'],
+                                      listItem[index]['title'],
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold,
