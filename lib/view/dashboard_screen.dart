@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,9 +23,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
+  final list_item = [
+    {"image": "assets/grocery.jpg", "title": "Grocery"},
+    {"image": "assets/rest.jpg", "title": "Restaurent"},
+    {"image": "assets/medicine.jpg", "title": "Medicine"},
+    {"image": "assets/elect.jpg", "title": "Electronics"}
+  ];
+
   @override
   Widget build(BuildContext context) {
-
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -50,189 +57,62 @@ class _DashboardScreenState extends State<DashboardScreen> {
               //title
               Padding(
                 padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Explore Our Item",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0),
-                        ),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Explore Our Item",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.0),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            GestureDetector(
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        child: GridView.builder(
+                          itemCount: list_item.length,
+                          shrinkWrap: true,
+                          physics: BouncingScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 10.0,
+                                  mainAxisSpacing: 8.0),
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
                               child: Container(
-                                child: Card(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 110,
-                                        width: 110,
-                                        child: Image.asset("assets/grocery.jpg"),
-                                      ),
-                                      Text(
-                                        "Grocery",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
-                                      )
-                                    ],
-                                  ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Container(
+                                      height: 110,
+                                      width: 110,
+                                      child: Image.asset(
+                                          list_item[index]['image']),
+                                    ),
+                                    Text(
+                                      list_item[index]['title'],
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.0),
+                                    )
+                                  ],
                                 ),
-                                width: _width / 2.3,
-                                height: 170,
-                                color: Colors.white,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        color: Colors.black12, width: 1)),
                               ),
-                              onTap: () {
-                                /*Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) =>Grocer()),
-                                );*/
-                              },
-                            ),
-                            SizedBox(
-                              width: 20.0,
-                            ),
-                            GestureDetector(
-                              child: Container(
-                                child: Card(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 110,
-                                        width: 110,
-                                        child: CircleAvatar(
-                                          radius: 50.0,
-                                          backgroundImage:
-                                              AssetImage("assets/rest.jpg"),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        "Restaurents",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                width: _width / 2.3,
-                                height: 170,
-                                color: Colors.white,
-                              ),
-                              onTap: () {
-                                /*
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) =>Restaurents()),
-                                );*/
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            GestureDetector(
-                              child: Container(
-                                child: Card(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 110,
-                                        width: 110,
-                                        child: Image.asset("assets/medicine.jpg"),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        "Medicine",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                width: _width / 2.3,
-                                height: 170,
-                                color: Colors.white,
-                              ),
-                              onTap: () {
-                                /*  Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) =>Medicine()),
-                                );*/
-                              },
-                            ),
-                            SizedBox(
-                              width: 20.0,
-                            ),
-                            GestureDetector(
-                              child: Container(
-                                child: Card(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 110,
-                                        width: 110,
-                                        child: Image.asset("assets/elect.jpg"),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        "Electronics",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                width: _width / 2.3,
-                                height: 170,
-                                color: Colors.white,
-                              ),
-                              onTap: () {
-                                /*
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) =>Electronics()),
-                                );*/
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                              onTap: () {},
+                            );
+                          },
+                        )),
+                  ],
                 ),
               ),
               SizedBox(
@@ -256,7 +136,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ],
                   ),
-
                   SizedBox(
                     width: 30,
                   ),
@@ -280,5 +159,3 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 }
-
-
