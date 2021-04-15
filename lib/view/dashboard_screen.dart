@@ -90,8 +90,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     Container(
                                       height: 110,
                                       width: 110,
-                                      child: Image.asset(
-                                          listItem[index]['image']),
+                                      child:
+                                          Image.asset(listItem[index]['image']),
                                     ),
                                     Text(
                                       listItem[index]['title'],
