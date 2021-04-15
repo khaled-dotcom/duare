@@ -23,6 +23,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
+  // TO DO: Flutter supports lowerCamelCase variable name. So make it listItem
   final list_item = [
     {"image": "assets/grocery.jpg", "title": "Grocery"},
     {"image": "assets/rest.jpg", "title": "Restaurent"},
@@ -32,6 +33,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // TO DO: Don't keep unused variable
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -45,10 +47,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 height: 180,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(40),
-                        bottomLeft: Radius.circular(40))),
+                    color: Colors.grey[100], borderRadius: BorderRadius.only(bottomRight: Radius.circular(40), bottomLeft: Radius.circular(40))),
                 child: Image.asset("assets/logo1.png"),
               ), //logo
               SizedBox(
@@ -62,10 +61,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Container(
                       child: Text(
                         "Explore Our Item",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30.0),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30.0),
                       ),
                     ),
                     SizedBox(
@@ -77,11 +73,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           itemCount: list_item.length,
                           shrinkWrap: true,
                           physics: BouncingScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10.0,
-                                  mainAxisSpacing: 8.0),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 8.0),
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
                               child: Container(
@@ -91,22 +83,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     Container(
                                       height: 110,
                                       width: 110,
-                                      child: Image.asset(
-                                          list_item[index]['image']),
+                                      child: Image.asset(list_item[index]['image']),
                                     ),
                                     Text(
                                       list_item[index]['title'],
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
+                                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
                                     )
                                   ],
                                 ),
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.black12, width: 1)),
+                                decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.black12, width: 1)),
                               ),
                               onTap: () {},
                             );
@@ -126,13 +111,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     children: [
                       Text(
                         "Can't Use App?",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "Order By Whatsapp",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -144,10 +127,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       padding: EdgeInsets.all(5.0),
                       height: 50,
                       width: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50.0),
-                          image: DecorationImage(
-                              image: AssetImage("assets/whts.png"))),
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(50.0), image: DecorationImage(image: AssetImage("assets/whts.png"))),
                     ),
                   ),
                 ],
