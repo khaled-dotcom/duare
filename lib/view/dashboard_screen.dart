@@ -1,3 +1,4 @@
+import 'package:duare/view/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -107,7 +108,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     border: Border.all(
                                         color: Colors.black12, width: 1)),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                if(index==0)
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeScreen()),
+                                  );
+
+
+                              },
                             );
                           },
                         )),
