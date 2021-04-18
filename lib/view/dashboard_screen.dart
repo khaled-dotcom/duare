@@ -43,7 +43,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               //logo
               Container(
                 height: 180,
-                width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.grey[100],
                     borderRadius: BorderRadius.only(
@@ -63,55 +62,60 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         fit: BoxFit.fitWidth,
                         child: Text(
                           "Explore Our Item",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30.0),
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.0,
+                          ),
                         ),
                       ),
                     ),
-                    Container(
-                      child: GridView.builder(
-                        itemCount: listItem.length,
-                        shrinkWrap: true,
-                        physics: BouncingScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1,
-                          crossAxisSpacing: 10.0,
-                          mainAxisSpacing: 10,
-                        ),
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Expanded(child: Image.asset(listItem[index]['image'])),
-                                  FittedBox(
-                                    fit: BoxFit.fitWidth,
-                                    child: Text(
-                                      listItem[index]['title'],
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                    width: 1,
-                                  )),
-                            ),
-                            onTap: () {
-                              if (index == 0) Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                            },
-                          );
-                        },
+                    GridView.builder(
+                      itemCount: listItem.length,
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
                       ),
+                      itemBuilder: (BuildContext context, int index) {
+                        return GestureDetector(
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Expanded(child: Image.asset(listItem[index]['image'])),
+                                FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(
+                                    listItem[index]['title'],
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.black12,
+                                  width: 1,
+                                )),
+                          ),
+                          onTap: () {
+                            if (index == 0)
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => HomeScreen()),
+                              );
+                          },
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -122,30 +126,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text(
-                              "Can't ase app?",
-                              style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 18),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            "Can't ase app?",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
                             ),
                           ),
-                          FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text(
-                              "Order by WhatsApp",
-                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
+                        ),
+                        FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            "Order by WhatsApp",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Image.asset("assets/whts.png", height: 50, width: 50),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Image.asset(
+                          "assets/whts.png",
+                          height: 50,
+                          width: 50,
+                        ),
+                      ),
                     ),
                   ],
                 ),
