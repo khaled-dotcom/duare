@@ -38,7 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               //logo
               Container(
@@ -47,119 +47,108 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 decoration: BoxDecoration(
                     color: Colors.grey[100],
                     borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(40),
-                        bottomLeft: Radius.circular(40))),
-                child: Image.asset("assets/logo1.png"),
+                      bottomRight: Radius.circular(40),
+                      bottomLeft: Radius.circular(40),
+                    )),
+                child: Center(child: Image.asset("assets/logo1.png")),
               ), //logo
-              SizedBox(
-                height: 40,
-              ),
               //title
-              Padding(
-                padding: EdgeInsets.only(left: 10.0, right: 10.0),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   children: <Widget>[
                     Container(
-                      child: Text(
-                        "Explore Our Item",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30.0),
+                      margin: EdgeInsets.symmetric(vertical: 20),
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Explore Our Item",
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30.0),
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
                     Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
-                        child: GridView.builder(
-                          itemCount: listItem.length,
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10.0,
-                                  mainAxisSpacing: 8.0),
-                          itemBuilder: (BuildContext context, int index) {
-                            return GestureDetector(
-                              child: Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      height: 110,
-                                      width: 110,
-                                      child:
-                                          Image.asset(listItem[index]['image']),
-                                    ),
-                                    Text(
+                      child: GridView.builder(
+                        itemCount: listItem.length,
+                        shrinkWrap: true,
+                        physics: BouncingScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 1,
+                          crossAxisSpacing: 10.0,
+                          mainAxisSpacing: 10,
+                        ),
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Expanded(child: Image.asset(listItem[index]['image'])),
+                                  FittedBox(
+                                    fit: BoxFit.fitWidth,
+                                    child: Text(
                                       listItem[index]['title'],
                                       style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
-                                    )
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.black12, width: 1)),
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
-                              onTap: () {
-                                if(index==0)
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => HomeScreen()),
-                                  );
-
-
-                              },
-                            );
-                          },
-                        )),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    color: Colors.black12,
+                                    width: 1,
+                                  )),
+                            ),
+                            onTap: () {
+                              if (index == 0) Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                            },
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Can't Use App?",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              "Can't ase app?",
+                              style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 18),
+                            ),
+                          ),
+                          FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              "Order by WhatsApp",
+                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "Order By Whatsapp",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      padding: EdgeInsets.all(5.0),
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50.0),
-                          image: DecorationImage(
-                              image: AssetImage("assets/whts.png"))),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Image.asset("assets/whts.png", height: 50, width: 50),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
