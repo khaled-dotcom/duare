@@ -1,6 +1,8 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
+import 'item_list_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -216,6 +218,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       "View All",
                       style: TextStyle(color: Colors.blue),
                     ),
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ItemList()),
+                      );
+                    },
                   )
                 ],
               ),
@@ -296,6 +305,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       "View All",
                       style: TextStyle(color: Colors.blue),
                     ),
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ItemList()),
+                      );
+                    },
                   )
                 ],
               ),
@@ -347,6 +363,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       "View All",
                       style: TextStyle(color: Colors.blue),
                     ),
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ItemList()),
+                      );
+                    },
                   )
                 ],
               ),
@@ -398,6 +421,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       "View All",
                       style: TextStyle(color: Colors.blue),
                     ),
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ItemList()),
+                      );
+                    },
                   )
                 ],
               ),
