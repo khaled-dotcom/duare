@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final _style = TextStyle(
       fontWeight: FontWeight.bold, fontSize: 20.0, color: Colors.black);
   final _style1 = TextStyle(
-      fontWeight: FontWeight.bold, fontSize: 17.0, color: Colors.black);
+      fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.black);
 
   String _selectedOption = null;
 
@@ -81,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(20),
@@ -144,10 +145,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
               Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
                 height: 200,
                 width: double.infinity,
                 child: Carousel(
@@ -171,67 +170,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
               Container(
-                margin: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      child: Icon(
-                        Icons.radio,
-                        size: 30.0,
-                        color: Colors.blue,
-                      ),
-                      onTap: () {},
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text("Use"),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "Duare5%",
-                        style: TextStyle(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        child: Icon(
+                          Icons.radio,
+                          size: 30.0,
                           color: Colors.blue,
                         ),
+                        onTap: () {},
                       ),
-                    ),
-                    Text("To Get 5% Discount On Grocery.")
-                  ],
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Use"),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "Duare5%",
+                          style: TextStyle(
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                      Text("To Get 5% Discount On Grocery Item Just.")
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Featured Items",
-                    style: _style,
-                  ),
-                  GestureDetector(
-                    child: Text(
-                      "View All",
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ItemList()),
-                      );
-                    },
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              _buildSectiontitle('Featured Items', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ItemList()),
+                );
+              }),
               Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
                 height: 250,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
@@ -250,10 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     EdgeInsets.only(top: 15.0, bottom: 15.0),
                                 height: 150,
                                 width: _width / 2.7,
-                                child: Container(
-                                  child:
-                                      Image.asset(featurItem[index]['image']),
-                                ),
+                                child: Image.asset(featurItem[index]['image']),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10.0),
                                     border: Border.all(
@@ -263,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 top: 30,
                                 child: Container(
                                   height: 30,
-                                  width: 120,
+                                  width: _width / 4,
                                   decoration: BoxDecoration(
                                       color: Colors.green,
                                       borderRadius: BorderRadius.only(
@@ -271,11 +246,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                         bottomLeft: Radius.circular(5),
                                       )),
                                   child: Center(
-                                      child: Text(
-                                    featurItem[index]['price'],
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                                      child: FittedBox(
+                                    fit: BoxFit.fitWidth,
+                                    child: Text(
+                                      featurItem[index]['price'],
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15.0),
+                                    ),
                                   )),
                                 ),
                               )
@@ -288,37 +267,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(featurItem[index]['subtitle']),
                         ],
                       );
-                      SizedBox(
-                        width: 20.0,
-                      );
                     }),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Fruits & Veg", style: _style),
-                  GestureDetector(
-                    child: Text(
-                      "View All",
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ItemList()),
-                      );
-                    },
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              _buildSectiontitle('Fruitts & Veg', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ItemList()),
+                );
+              }),
               Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
                 height: 250,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
@@ -351,32 +309,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Grocery", style: _style),
-                  GestureDetector(
-                    child: Text(
-                      "View All",
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ItemList()),
-                      );
-                    },
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              _buildSectiontitle('Grocery', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ItemList()),
+                );
+              }),
               Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
                 height: 250,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
@@ -409,32 +349,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Beverages", style: _style),
-                  GestureDetector(
-                    child: Text(
-                      "View All",
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ItemList()),
-                      );
-                    },
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              _buildSectiontitle('Beverages', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ItemList()),
+                );
+              }),
               Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
                 height: 250,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
@@ -471,6 +393,25 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSectiontitle(String title, [Function onTap]) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: _style,
+        ),
+        InkWell(
+          onTap: onTap ?? () {},
+          child: Text(
+            'View All',
+            style: TextStyle(color: Colors.blue),
+          ),
+        ),
+      ],
     );
   }
 }

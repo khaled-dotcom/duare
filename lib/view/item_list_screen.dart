@@ -36,21 +36,20 @@ class _ItemListState extends State<ItemList> {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   child: Container(
+                    padding: EdgeInsets.all(5.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Container(
-                          height: 110,
-                          child:
-                          Image.asset(fruitVegItem[index]['image']),
-                        ),
-                        SizedBox(height: 10.0,),
-                        Text(
-                          fruitVegItem[index]['title'],
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0),
+                        Expanded(child: Image.asset(fruitVegItem[index]['image'])),
+                        FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            fruitVegItem[index]['title'],
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0),
+                          ),
                         )
                       ],
                     ),

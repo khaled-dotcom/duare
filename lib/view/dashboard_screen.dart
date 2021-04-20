@@ -132,7 +132,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         FittedBox(
                           fit: BoxFit.fitWidth,
                           child: Text(
-                            "Can't ase app?",
+                            "Can't use app?",
                             style: TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
